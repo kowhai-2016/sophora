@@ -1,3 +1,32 @@
+.picture{
+  width: 70%;
+  height: 60%;
+  padding: 30px;
+  padding-left: 30px;
+  position: absolute;
+  text-align: center;
+
+}
+
+.imagedetail{
+  max-width: 100%;
+  max-height:100%;
+}
+
+.captionbox{
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: flex;
+  justify-content: center;
+}
+
+.displaycaption{
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 3em;
+}
+
 label{
   color:Grey;
 }
