@@ -26,3 +26,30 @@
   padding-right: 10px;
   font-size: 3em;
 }
+
+label{
+  color:Grey;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.img-fluid{
+  max-width: 400px;
+  margin-bottom: 20px;
+  margin-top: 30%;
+}
+
+.form-control{
+  width: 400px;
+}
+
+.btn-outline-success{
+  align-items: flex-end;
+}
