@@ -53,3 +53,7 @@ label{
 .btn-outline-success{
   align-items: flex-end;
 }
+
+.addPostForm{
+  margin-top: 50px;
+}
