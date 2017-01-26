@@ -39,3 +39,6 @@ jspm_packages
 # Webpack output
 bundle.js
 bundle.js.map
+
+# Temporary files
+.DS_Store
