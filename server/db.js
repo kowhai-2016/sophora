@@ -103,8 +103,6 @@
     }, 1000)
   }
 
-  let nextId = 7
-
   function addPost (postUrl, callback) {
 
     posts.push({
@@ -112,7 +110,7 @@
       url: postUrl
     })
     setTimeout(() => {
-      callback(null, posts[nextId])
+      callback(null, posts[posts.length])
     }, 1000)
   }
 
@@ -128,9 +126,19 @@
     }, 1000)
   }
 
+  function updateLike (postId, captionId, callback) {
+    const postIndex = posts.findIndex(element => element.id === postId)
+    const captionsindex = posts[postIndex].captions.findIndex(element => element.id === captionId)
+    posts[postIndex].captions[captionsindex].like++
+    setTimeout(() => {
+      callback(null, posts[postIndex].captions[captionsindex].like)
+    }, 1000)
+  }
+
   module.exports = {
     getAllPosts,
     addPost,
     addCaption,
+    updateLike,
     posts
   }
