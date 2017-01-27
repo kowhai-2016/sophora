@@ -11,7 +11,7 @@ const PostDetail = props => {
   return (
     <div>
       <Post post={post} numPosts={props.posts.length} />
-      <Captions caption={caption} />
+      <Captions caption={caption} numCaptions={post.captions.length} postId={post.id} />
     </div>
   )
 }
