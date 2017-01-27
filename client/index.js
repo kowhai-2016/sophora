@@ -15,21 +15,10 @@ let store = createStore(
   )
 )
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   render(
-//     <Provider store={store}>
-//       <App />
-//     </Provider>,
-//     document.getElementById('app')
-//   )
-// })
-
-import PostDetail from './components/PostDetail'
-
 document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
-      <PostDetail />
+      <App />
     </Provider>,
     document.getElementById('app')
   )
