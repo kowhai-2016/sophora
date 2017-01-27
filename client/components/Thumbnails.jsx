@@ -6,8 +6,8 @@ export default React.createClass({
   imageRendering() {
     return this.props.posts.map((post) => {
       return  (
-        <div className="col-md-3">
-          <img className="img-fluid thumbnail" src="{post.url}" />
+        <div className="col-md-3" key={post.id}>
+          <img className="img-fluid thumbnail" src={post.url} />
         </div>
       )
     })
