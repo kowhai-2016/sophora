@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
-export default () => {
+const PostImage = props => {
   return (
     <img
-      src='https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg'
+      src={props.url}
       className='imagedetail'
       alt='Image' />
   )
 }
+
+PostImage.propTypes = {
+  url: PropTypes.string.isRequired
+}
+
+export default PostImage

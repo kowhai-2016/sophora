@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
-export default () => {
+const CaptionAdd = ({ postId }) => {
   return (
-    <Link role='button' to='/posts/{props.params.postId}/add' className='btn'>
-      <span className='fa fa-plus' />
+    <Link to={`posts/${postId}/add`}>
+      <button className='btn'>
+        <span className='fa fa-plus' />
+      </button>
     </Link>
   )
 }
+
+CaptionAdd.propTypes = {
+  postId: PropTypes.number.isRequired
+}
+
+export default CaptionAdd

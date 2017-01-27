@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import Thumbnails from '../components/Thumbnails'
+import PostDetail from '../components/PostDetail'
 
 const mapStateToProps = state => {
   return {
@@ -8,4 +8,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Thumbnails)
+export default connect(mapStateToProps)(PostDetail)
