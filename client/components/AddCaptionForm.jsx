@@ -13,7 +13,7 @@ export default React.createClass({
           <div className="form-group">
             <label htmlFor="exampleTextarea">Drop a line down below</label>
             <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
-            <button type="button" className="btn btn-outline-success">Add Caption</button>
+            <Link role="button" className="btn btn-outline-success" to='/posts/{props.params.postId}'>Add Caption</Link>
           </div>
         </div>
       </div>
