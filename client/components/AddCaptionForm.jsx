@@ -13,9 +13,7 @@ export default React.createClass({
           <div className="form-group">
             <label htmlFor="exampleTextarea">Drop a line down below</label>
             <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
-            <a href="#">
-              <button type="button" className="btn btn-outline-success">Add Caption</button>
-            </a>
+            <button type="button" className="btn btn-outline-success">Add Caption</button>
           </div>
         </div>
       </div>
