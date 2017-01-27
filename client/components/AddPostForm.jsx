@@ -9,7 +9,7 @@ export default React.createClass({
             <label htmlFor="url">Image URL:</label>
             <input name='url' type="url" className="form-control" id="url" placeholder="Place your image URL here" style={{width: '100%'}} />
           </div>
-          <button type="submit" className="btn btn-primary pull-right">Add Post</button>
+          <Link role="button" to="/posts/1/add" className="btn btn-primary pull-right">Add Post</Link>
         </form>
       </div>
     )

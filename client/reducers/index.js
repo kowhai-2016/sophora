@@ -8,6 +8,9 @@ const reducer = (state = INITIAL_STATE, action) => {
     case 'ACTION_TYPE':
       return newState
 
+    // case 'POST_CAPTION':
+    //   newState.caption = action.caption
+
     default:
       return state
   }
