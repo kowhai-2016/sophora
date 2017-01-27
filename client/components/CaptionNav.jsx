@@ -1,10 +1,17 @@
 import React, { PropTypes } from 'react'
 
+let nextId = props.params.captionId
+
 const CaptionNav = ({ direction }) => {
+  if ({direction} === 'up') {
+    nextId++
+  } else {
+    nextId--
+  }
   return (
-    <button className='btn'>
+    <Link role='button' to='/posts/{props.params.postId}/{nextId}' className='btn'>
       <span className={`fa fa-arrow-${direction}`} />
-    </button>
+    </Link>
   )
 }
 

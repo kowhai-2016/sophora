@@ -1,10 +1,17 @@
 import React, { PropTypes } from 'react'
 
+let nextId = props.params.postId
+
 const PostNav = ({ direction }) => {
+  if ({direction} === 'right') {
+    nextId++
+  } else {
+    nextId--
+  }
   return (
-    <button className='btn'>
+    <Link role='button' to='/posts/{nextId}' className='btn'>
       <span className={`fa fa-arrow-${direction}`} aria-hidden='true' />
-    </button>
+    </Link>
   )
 }
 

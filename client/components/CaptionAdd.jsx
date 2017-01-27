@@ -2,8 +2,8 @@ import React from 'react'
 
 export default () => {
   return (
-    <button className='btn'>
+    <Link role='button' to='/posts/{props.params.postId}/add' className='btn'>
       <span className='fa fa-plus' />
-    </button>
+    </Link>
   )
 }

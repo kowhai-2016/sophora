@@ -4,14 +4,18 @@ import PostButton from './PostButton'
 
 export default React.createClass({
   imageRendering () {
-    return this.props.posts.map((post) => {
-      return (
-        <div className='col-md-3' key={post.id}>
-          <img className='img-fluid thumbnail' src={post.url} />
-        </div>
-      )
-    })
-  },
+    return (
+      <h1>This is a thumbnail</h1>
+    )
+    // return this.props.posts.map((post) => {
+    //   return (
+    //     <div className='col-md-3' key={post.id}>
+    //       <img className='img-fluid thumbnail' src={post.url} />
+    //     </div>
+    //   )
+    }
+  // }
+  ,
 
   render () {
     return (
