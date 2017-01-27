@@ -24,9 +24,12 @@ router.post('/:id', function (req, res) {
   })
 })
 
-// router.put('/:id', function (req, res) {
-//   const like = req.body.like
-//   const postId = Number(req.params.id)
-// })
+router.put('/:postId/:captionId', function (req, res) {
+  const captionId = Number(req.params.captionId)
+  const postId = Number(req.params.postId)
+  db.updateLike(postId, captionId, (err, postLike) => {
+    res.json({message: 'like updated successfully'})
+  })
+})
 
 module.exports = router
