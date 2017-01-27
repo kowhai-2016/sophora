@@ -11,7 +11,7 @@ const PostNav = ({ direction, enabled, postId }) => {
     const newPostId = postId + (direction === 'left' ? -1 : 1)
     return (
       <Link to={`/posts/${newPostId}`}>
-        <Button />
+        {Button}
       </Link>
     )
   } else {

@@ -1,8 +1,11 @@
 import React from 'react'
 
-const App = () => (
+import Header from './Header'
+
+const App = props => (
   <div>
-    <h1>Sophora</h1>
+    <Header />
+    {props.children}
   </div>
 )
 

@@ -4,8 +4,8 @@ import Captions from './Captions'
 import Post from './Post'
 
 const PostDetail = props => {
-  const postId = props.location.params.postId
-  const captionId = props.location.params.captionId
+  const postId = Number(props.params.postId)
+  const captionId = Number(props.params.captionId)
   const post = props.posts.find(post => post.id === postId)
   const caption = post.captions.find(caption => caption.id === captionId)
   return (
@@ -17,18 +17,16 @@ const PostDetail = props => {
 }
 
 PostDetail.propTypes = {
-  location: PropTypes.shape({
-    params: PropTypes.shape({
-      captionId: PropTypes.number.isRequired,
-      postId: PropTypes.number.isRequired
-    }).isRequired
+  params: PropTypes.shape({
+    captionId: PropTypes.string.isRequired,
+    postId: PropTypes.string.isRequired
   }).isRequired,
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      captions: PropTypes.arrayOf({
+      captions: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired
-      }).isRequired
+      })).isRequired
     })
   ).isRequired
 }
