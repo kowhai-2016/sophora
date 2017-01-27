@@ -1,8 +1,9 @@
 import React from 'react'
 
-const App = () => (
+const App = props => (
   <div>
     <h1>Sophora</h1>
+    {props.children}
   </div>
 )
 

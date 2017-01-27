@@ -10,7 +10,7 @@ const Post = props => {
       <div className='picture container-fluid'>
         <PostNav direction='left' enabled={props.post.id > 1} postId={post.id} />
         <PostImage url={post.url} />
-        <PostNav direction='right' enabled={props.post.id < props.numPosts - 1} postId={post.id} />
+        <PostNav direction='right' enabled={props.post.id < props.numPosts} postId={post.id} />
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ const Captions = props => {
     <div className='captionbox container'>
       <div className='pagedetail-nav'>
         <CaptionNav captionId={props.caption.id} direction='up' enabled={props.caption.id > 1} postId={props.postId} />
-        <CaptionNav captionId={props.caption.id} direction='down' enabled={props.caption.id < props.numCaptions - 1} postId={props.postId} />
+        <CaptionNav captionId={props.caption.id} direction='down' enabled={props.caption.id < props.numCaptions} postId={props.postId} />
       </div>
       <div className='displaycaption'>
         <h3>{props.caption.text}</h3>
