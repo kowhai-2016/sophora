@@ -11,14 +11,15 @@ const PostDetail = props => {
   return (
     <div>
       <Post post={post} numPosts={props.posts.length} />
-      <Captions caption={caption} numCaptions={post.captions.length} postId={post.id} />
     </div>
   )
 }
 
+// <Captions caption={caption} numCaptions={post.captions.length} postId={post.id} />
+
 PostDetail.propTypes = {
   params: PropTypes.shape({
-    captionId: PropTypes.string.isRequired,
+    captionId: PropTypes.string,
     postId: PropTypes.string.isRequired
   }).isRequired,
   posts: PropTypes.arrayOf(

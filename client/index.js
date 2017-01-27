@@ -12,7 +12,7 @@ import reducers from './reducers'
 import PostDetailContainer from './containers/PostDetailContainer'
 import AddCaptionForm from './components/AddCaptionForm'
 import AddPostForm from './components/AddPostForm'
-import Thumbnails from './components/Thumbnails'
+import ThumbnailsContainer from './containers/ThumbnailsContainer'
 
 let store = createStore(
   reducers,
@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
       <Router history={history}>
-       <Route path='/' component={App}>
-        <IndexRoute component={Thumbnails} />
-        <Route path="posts/add" component={AddPostForm} />
-        <Route path="posts/:postId/add" component={AddCaptionForm} />
-        <Route path="posts/:postId(/:captionId)" component={PostDetailContainer} />
-       </Route>
+        <Route path='/' component={App}>
+          <IndexRoute component={ThumbnailsContainer} />
+          <Route path='posts/add' component={AddPostForm} />
+          <Route path='posts/:postId/add' component={AddCaptionForm} />
+          <Route path='posts/:postId(/:captionId)' component={PostDetailContainer} />
+        </Route>
       </Router>
     </Provider>,
     document.getElementById('app')
