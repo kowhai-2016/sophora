@@ -1,0 +1,59 @@
+.picture{
+  width: 70%;
+  height: 60%;
+  padding: 30px;
+  padding-left: 30px;
+  position: absolute;
+  text-align: center;
+
+}
+
+.imagedetail{
+  max-width: 100%;
+  max-height:100%;
+}
+
+.captionbox{
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  align-items: flex;
+  justify-content: center;
+}
+
+.displaycaption{
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 3em;
+}
+
+label{
+  color:Grey;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.img-fluid{
+  max-width: 400px;
+  margin-bottom: 20px;
+  margin-top: 30%;
+}
+
+.form-control{
+  width: 400px;
+}
+
+.btn-outline-success{
+  align-items: flex-end;
+}
+
+.add-post-form{
+  margin-top: 50px;
+}
