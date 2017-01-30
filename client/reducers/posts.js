@@ -96,9 +96,22 @@ const INITIAL_STATE = [
     ]}
 ]
 
+const handlers = {
+  LIKE_CAPTION_SUCCESS: (state, action) => {
+    const newState = state.slice(0) // Copy the state array
+    newState
+      .find(post => post.id === action.postId) // Find the right post
+      .captions
+      .find(caption => caption.id === action.captionId) // Find the right caption
+      .likes = action.likes // Update the number of likes
+    return newState
+  }
+}
+
 export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    default:
-      return state
+  if (handlers.hasOwnProperty(action.type)) {
+    return handlers[action.type](state, action)
+  } else {
+    return state
   }
 }
