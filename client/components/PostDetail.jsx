@@ -38,7 +38,7 @@ const PostDetail = props => {
     <div>
       <Post post={post} numPosts={props.posts.length} />
       <div>
-        <CaptionAdd postId={props.postId} />
+        <CaptionAdd postId={postId} />
         {captions}
       </div>
     </div>
