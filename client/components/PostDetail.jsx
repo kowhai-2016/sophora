@@ -13,11 +13,19 @@ const PostDetail = props => {
       props.likeCaption({captionId: caption.id, postId})
     }
     return (
-      <div key={caption.id} className='card' style={{textAlign: 'center', maxWidth: '300px'}}>
+      <div key={caption.id} className='card' style={{margin: '10px auto', float: 'none', maxWidth: '400px'}}>
         <div className='card-block'>
           <h6 className='card-subtitle mb-2 text-muted'>#{caption.id}</h6>
           <p className='card-text'>{caption.text}</p>
-          <button onClick={onLikeClick} type='button' className='btn btn-outline-success card-link'>Likes {caption.likes}</button>
+        </div>
+        <div className='card-footer'>
+          <button
+            style={{cursor: 'pointer'}}
+            onClick={onLikeClick}
+            type='button'
+            className='btn btn-outline-success card-link'>
+            <span className='fa fa-thumbs-up' /> {caption.likes}
+          </button>
         </div>
       </div>
     )
