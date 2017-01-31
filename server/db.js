@@ -132,7 +132,7 @@
     posts[postIndex].captions[captionsindex].like++
     setTimeout(() => {
       callback(null, posts[postIndex].captions[captionsindex].like)
-    }, 1000)
+    }, 1)
   }
 
   module.exports = {
