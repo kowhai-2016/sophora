@@ -96,9 +96,24 @@ const INITIAL_STATE = [
     ]}
 ]
 
+const handlers = {
+  CAPTION_ADD_SUCCESS: (state, action) => {
+    const newState = state.slice(0) // Copy the state array
+    let captions = newState.find(post => post.id === action.postId).captions
+      newState
+        .find(post => post.id === action.postId) // Find the right post
+        .captions.push({
+          id: captions.length+1,
+          text: action.caption
+        })
+    return newState
+  }
+}
+
 export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    default:
-      return state
+  if (handlers.hasOwnProperty(action.type)) {
+    return handlers[action.type](state, action)
+  } else {
+    return state
   }
 }

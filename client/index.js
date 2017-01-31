@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import reducers from './reducers'
 import PostDetailContainer from './containers/PostDetailContainer'
-import AddCaptionForm from './components/AddCaptionForm'
+import PostCaptionContainer from './containers/PostCaptionContainer'
 import AddPostForm from './components/AddPostForm'
 import ThumbnailsContainer from './containers/ThumbnailsContainer'
 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <Route path='/' component={App}>
           <IndexRoute component={ThumbnailsContainer} />
           <Route path='posts/add' component={AddPostForm} />
-          <Route path='posts/:postId/add' component={AddCaptionForm} />
+          <Route path='posts/:postId/add' component={PostCaptionContainer} />
           <Route path='posts/:postId(/:captionId)' component={PostDetailContainer} />
         </Route>
       </Router>
