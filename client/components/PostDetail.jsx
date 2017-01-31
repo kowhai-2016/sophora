@@ -3,12 +3,18 @@ import React, { PropTypes } from 'react'
 // import Captions from './Captions'
 import Post from './Post'
 
+const sortCaptions = captions => {
+  const copy = captions.slice(0)
+  copy.sort((a, b) => b.likes - a.likes)
+  return copy
+}
+
 const PostDetail = props => {
   const postId = Number(props.params.postId)
   // const captionId = Number(props.params.captionId)
   const post = props.posts.find(post => post.id === postId)
   // const caption = post.captions.find(caption => caption.id === captionId)
-  const captions = post.captions.map(caption => {
+  const captions = sortCaptions(post.captions).map(caption => {
     const onLikeClick = () => {
       props.likeCaption({captionId: caption.id, postId})
     }
