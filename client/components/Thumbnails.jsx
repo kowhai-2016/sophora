@@ -14,9 +14,13 @@ export default props => {
     )
   })
   return (
-    <div className='row thumbnail-gallery'>
-      <PostButton />
-      {thumbnails}
+    <div className='card-colums'>
+      <div className='card p-3'>
+        <div className='"card-img-top img-fluid"'>
+          <PostButton />
+          {thumbnails}
+        </div>
+      </div>
     </div>
   )
 }

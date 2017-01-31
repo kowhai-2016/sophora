@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-// import Captions from './Captions'
+import CaptionAdd from './CaptionAdd'
 import Post from './Post'
 
 const sortCaptions = captions => {
@@ -11,9 +11,7 @@ const sortCaptions = captions => {
 
 const PostDetail = props => {
   const postId = Number(props.params.postId)
-  // const captionId = Number(props.params.captionId)
   const post = props.posts.find(post => post.id === postId)
-  // const caption = post.captions.find(caption => caption.id === captionId)
   const captions = sortCaptions(post.captions).map(caption => {
     const onLikeClick = () => {
       props.likeCaption({captionId: caption.id, postId})
@@ -40,13 +38,12 @@ const PostDetail = props => {
     <div>
       <Post post={post} numPosts={props.posts.length} />
       <div>
+        <CaptionAdd postId={props.postId} />
         {captions}
       </div>
     </div>
   )
 }
-
-// <Captions caption={caption} numCaptions={post.captions.length} postId={post.id} />
 
 PostDetail.propTypes = {
   likeCaption: PropTypes.func.isRequired,

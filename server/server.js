@@ -14,10 +14,6 @@ app.use(express.static(path.join(__dirname, 'static')))
 
 app.use('/posts', routes)
 
-app.get('*', (request, response) => {
-  response.sendFile(path.resolve(__dirname, '../static', 'index.html'))
-})
-
 app.listen(PORT, function () {
   console.log('Listening on port', PORT)
 })
