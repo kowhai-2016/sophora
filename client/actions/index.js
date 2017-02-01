@@ -5,7 +5,7 @@ import {hashHistory} from 'react-router'
 
 export const addCaption = (caption, postId) => {
   return dispatch => {
-    const target = `http://localhost:3000/posts/${postId}`
+    const target = `/posts/${postId}`
 
     request.post(target)
       .set('Content-Type', 'application/json')
@@ -64,6 +64,8 @@ export const addingCaption = (caption, postId) => {
     type: 'ADDING_CAPTION',
     caption,
     postId
+  }
+}
 
 export const likeCaptionFailure = (postId, captionId, message) => {
   return {
