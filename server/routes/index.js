@@ -17,7 +17,8 @@ router.post('/', function (req, res) {
 })
 
 router.post('/:id', function (req, res) {
-  const caption = req.body.caption
+  const caption = req.body.text
+  console.log(caption)
   const postId = Number(req.params.id)
   db.addCaption(postId, caption, (err, postCaption) => {
     res.json({message: 'caption added successfully'})
