@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 
+import { likeCaption } from '../actions'
 import PostDetail from '../components/PostDetail'
 
 const mapStateToProps = state => {
@@ -8,4 +9,12 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(PostDetail)
+const mapDispatchToProps = dispatch => {
+  return {
+    likeCaption (postId, captionId) {
+      dispatch(likeCaption(postId, captionId))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetail)

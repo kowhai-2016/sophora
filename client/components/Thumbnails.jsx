@@ -6,17 +6,19 @@ import PostButton from './PostButton'
 export default props => {
   const thumbnails = props.posts.map((post, index) => {
     return (
-      <div className='col-md-3' key={index}>
+      <div className='card' key={index} style={{textAlign: 'center'}}>
         <Link to={`/posts/${post.id}`}>
-          <img className='img-fluid thumbnail' src={post.url} />
+          <img className='card-img-top img-fluid' src={post.url} />
         </Link>
       </div>
     )
   })
   return (
-    <div className='row thumbnail-gallery'>
+    <div className='container'>
       <PostButton />
-      {thumbnails}
+      <div className='card-columns'>
+        {thumbnails}
+      </div>
     </div>
   )
 }

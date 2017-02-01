@@ -29,7 +29,7 @@ router.put('/:postId/:captionId', function (req, res) {
   const captionId = Number(req.params.captionId)
   const postId = Number(req.params.postId)
   db.updateLike(postId, captionId, (err, postLike) => {
-    res.json({message: 'like updated successfully'})
+    res.json({likes: postLike, message: 'like updated successfully'})
   })
 })
 

@@ -5,9 +5,9 @@
   "main": "server/server.js",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --hot --inline --content-base server/static/",
+    "start": "node server/server",
     "server": "node-dev server/server",
+    "watch": "node-dev server/server --watch & webpack --watch",
     "test": "ava --watch"
   },
   "babel": {
@@ -27,6 +27,7 @@
     "babel-preset-react": "^6.22.0",
     "enzyme": "^2.7.1",
     "node-dev": "^3.1.3",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
