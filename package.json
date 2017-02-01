@@ -8,13 +8,17 @@
     "start": "node server/server",
     "server": "node-dev server/server",
     "watch": "node-dev server/server --watch & webpack --watch",
-    "test": "ava --watch"
+    "test": "ava --watch",
+    "postinstall": "webpack"
   },
   "babel": {
     "presets": [
       "es2015",
       "react"
     ]
+  },
+  "engines": {
+    "node" : ">=7.4"
   },
   "author": "EDA",
   "license": "ISC",
