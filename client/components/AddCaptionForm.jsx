@@ -32,12 +32,4 @@ const AddCaptionForm = props => {
     )
 }
 
-// AddCaptionForm.propTypes = {
-//   post: PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     url: PropTypes.string.isRequired
-//   }).isRequired
-//   // numPosts: PropTypes.number.isRequired
-// }
-
 export default AddCaptionForm

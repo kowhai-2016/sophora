@@ -1,7 +1,5 @@
 import request from 'superagent'
-// import { push } from 'react-router-redux'
 import {hashHistory} from 'react-router'
-
 
 export const addCaption = (caption, postId) => {
   return dispatch => {

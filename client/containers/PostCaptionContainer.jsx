@@ -6,9 +6,9 @@ import AddCaptionForm from '../components/AddCaptionForm'
 import PostDetailContainer from '../containers/PostDetailContainer'
 
 
-const mapStateToProps = state => {
+const mapStateToProps = ({posts}) => {
   return {
-    posts: state.posts
+    posts
   }
 }
 
@@ -16,7 +16,6 @@ const mapDispatchToProps = dispatch => {
   return {
     onSubmit: (caption, postId) => {
       dispatch(addCaption(caption, postId))
-      
     }
   }
 }
