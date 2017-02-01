@@ -5,9 +5,9 @@
   "main": "server/server.js",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "nodemon server/server --watch & webpack --watch",
+    "start": "node server/server",
     "server": "node-dev server/server",
+    "watch": "node-dev server/server --watch & webpack --watch",
     "test": "ava --watch"
   },
   "babel": {
