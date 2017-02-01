@@ -14,7 +14,6 @@ app.use(express.static(path.join(__dirname, 'static')))
 
 app.use('/posts', routes)
 
-
 app.listen(PORT, function () {
   console.log('Listening on port', PORT)
 })

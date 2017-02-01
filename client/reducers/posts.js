@@ -97,12 +97,22 @@ const INITIAL_STATE = [
 ]
 
 export default (state = INITIAL_STATE, action) => {
+  const newState = state.slice(0) // Copy the state array
   switch (action.type) {
+
     case 'ADD_NEW_POST_SUCCESS':
       return [...state, action.url]
 
     case 'ADD_NEW_POST_FAILURE':
       return [...state, 'ERROR SOMETHING BAD HAPPENED']
+
+    case 'LIKE_CAPTION_SUCCESS':
+      newState
+        .find(post => post.id === action.postId) // Find the right post
+        .captions
+        .find(caption => caption.id === action.captionId) // Find the right caption
+        .likes = action.likes // Update the number of likes
+      return newState
 
     default:
       return state
