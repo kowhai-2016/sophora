@@ -14,7 +14,7 @@ const PostDetail = props => {
   const post = props.posts.find(post => post.id === postId)
   const captions = sortCaptions(post.captions).map(caption => {
     const onLikeClick = () => {
-      props.likeCaption({captionId: caption.id, postId})
+      props.likeCaption(postId, caption.id)
     }
     return (
       <div key={caption.id} className='card' style={{margin: '10px auto', float: 'none', maxWidth: '400px'}}>
@@ -38,7 +38,7 @@ const PostDetail = props => {
     <div>
       <Post post={post} numPosts={props.posts.length} />
       <div>
-        <CaptionAdd postId={props.postId} />
+        <CaptionAdd postId={postId} />
         {captions}
       </div>
     </div>

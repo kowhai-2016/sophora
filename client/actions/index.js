@@ -1,34 +1,35 @@
 import request from 'superagent'
 
-export const likeCaption = ({ captionId, postId }) => {
+export const likeCaption = (postId, captionId) => {
   const origin = window.location.origin
   return dispatch => {
-    dispatch(likeCaptionPending({captionId, postId}))
+    dispatch(likeCaptionPending(postId, captionId))
     request.put(`${origin}/posts/${postId}/${captionId}`)
       .end((error, response) => {
         if (error) {
-          return dispatch(likeCaptionFailure({
-            captionId,
+          return dispatch(likeCaptionFailure(
             postId,
-            message: error.message
-          }))
+            captionId,
+            error.message
+          ))
         } else {
           const likes = response.body.likes
-          return dispatch(likeCaptionSuccess({captionId, likes, postId}))
+          return dispatch(likeCaptionSuccess(postId, captionId, likes))
         }
       })
   }
 }
 
-export const likeCaptionFailure = ({ captionId, postId }) => {
+export const likeCaptionFailure = (postId, captionId, message) => {
   return {
     captionId,
     postId,
+    message,
     type: 'LIKE_CAPTION_FAILURE'
   }
 }
 
-export const likeCaptionPending = ({ captionId, postId }) => {
+export const likeCaptionPending = (postId, captionId) => {
   return {
     captionId,
     postId,
@@ -36,7 +37,7 @@ export const likeCaptionPending = ({ captionId, postId }) => {
   }
 }
 
-export const likeCaptionSuccess = ({ captionId, likes, postId }) => {
+export const likeCaptionSuccess = (postId, captionId, likes) => {
   return {
     captionId,
     likes,
