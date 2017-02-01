@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
 const CaptionAdd = ({ postId }) => {
-  return (
+    return (
     <Link to={`posts/${postId}/add`}>
       <button className='btn'>
         <span className='fa fa-plus' />
