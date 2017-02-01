@@ -11,8 +11,8 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
   const post = req.body.url
-  db.addPost(post, (err, postUrl) => {
-    res.json({message: 'post added successfully'})
+  db.addPost(post, (err, post) => {
+  res.status(201).json(post)
   })
 })
 

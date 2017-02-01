@@ -110,7 +110,7 @@
       url: postUrl
     })
     setTimeout(() => {
-      callback(null, posts[posts.length])
+      callback(null, posts[posts.length - 1])
     }, 1000)
   }
 

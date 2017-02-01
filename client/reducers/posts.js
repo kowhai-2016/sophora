@@ -98,6 +98,12 @@ const INITIAL_STATE = [
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case 'ADD_NEW_POST_SUCCESS':
+      return [...state, action.url]
+
+    case 'ADD_NEW_POST_FAILURE':
+      return [...state, 'ERROR SOMETHING BAD HAPPENED']
+
     default:
       return state
   }
