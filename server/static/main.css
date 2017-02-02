@@ -55,14 +55,25 @@ label{
   margin-top: 30%;
 }
 
-.form-control{
-  width: 400px;
-}
 
 .btn-outline-success{
   align-items: flex-end;
 }
 
 .add-post-form{
-  margin-top: 50px;
+  margin: 50px, 50px;
+  padding-top: 2%;
+  width: 100%;
+}
+
+.form-control{
+  width: 400px;
+}
+.url-form{
+  width: 800px;
+  margin: 10px;
+}
+
+.post-button{
+  padding-left: 3%;
 }
