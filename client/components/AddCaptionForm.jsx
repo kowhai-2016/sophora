@@ -14,6 +14,7 @@ const submitCaption = (props, caption, postId) => {
 const AddCaptionForm = props => {
     const postId = Number(props.params.postId)
     const post = props.posts.find(post => post.id === postId)
+    if(!post) return null
     return (
       <div className="container">
         <div className="row">

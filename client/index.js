@@ -7,7 +7,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 
-import App from './components/App'
+import AppContainer from './containers/AppContainer'
 import reducers from './reducers'
 import PostDetailContainer from './containers/PostDetailContainer'
 import AddNewPostContainer from './containers/AddNewPostContainer'
@@ -18,7 +18,7 @@ let store = createStore(
   reducers,
   compose(
     applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
   )
 )
 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
       <Router history={history}>
-        <Route path='/' component={App}>
+        <Route path='/' component={AppContainer}>
           <IndexRoute component={ThumbnailsContainer} />
           <Route path='posts/add' component={AddNewPostContainer} />
           <Route path='posts/:postId/add' component={PostCaptionContainer} />
