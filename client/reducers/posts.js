@@ -12,7 +12,7 @@ const handlers = {
   }
 }
 
-export default (state = INITIAL_STATE, action) => {
+export default (state = [], action) => {
   let newState = state.slice(0) // Copy the state array
   switch (action.type) {
 

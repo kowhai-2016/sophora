@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import CaptionAdd from './CaptionAdd'
-import Captionlike from './Captionlike'
+import CaptionLikes from './CaptionLikes'
 import CaptionNav from './CaptionNav'
 
 const Captions = props => {
@@ -15,7 +15,7 @@ const Captions = props => {
         <h3>{props.caption.text}</h3>
       </div>
       <div className='row'>
-        <Captionlike like={props.caption.like} />
+        <CaptionLikes like={props.caption.like} />
         <CaptionAdd postId={props.postId} />
       </div>
     </div>
