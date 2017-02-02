@@ -3,11 +3,16 @@ import { Link } from 'react-router'
 
 const CaptionAdd = ({ postId }) => {
   return (
-    <Link to={`posts/${postId}/add`}>
-      <button className='btn'>
-        <span className='fa fa-plus' />
-      </button>
-    </Link>
+    <div className='row' style={{width: '85%'}}>
+      <div className='col-9' />
+      <div className='col-3'>
+        <Link to={`posts/${postId}/add`}>
+          <button className='btn btn-info'>
+            <span className='fa fa-plus' />
+          </button>
+        </Link>
+      </div>
+    </div>
   )
 }
 
