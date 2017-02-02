@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { likeCaption } from '../actions'
 import PostDetail from '../components/PostDetail'
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ posts }) => {
   return {
-    posts: state.posts
+    posts
   }
 }
 
