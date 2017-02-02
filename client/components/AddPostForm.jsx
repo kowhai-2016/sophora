@@ -2,16 +2,18 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export default React.createClass({
+  updateUrl (evt) {
+    this.setState({url: evt.target.value})
+  },
+
   render () {
     return (
       <div className="row add-post-form">
-        <form style={{width: '100%'}}>
           <div className="form-group">
             <label htmlFor="url">Image URL:</label>
-            <input name='url' type="url" className="form-control" id="url" placeholder="Place your image URL here" style={{width: '100%'}} />
+            <input name='url' onChange={this.updateUrl} className="form-control" id="url" placeholder="Place your image URL here" style={{width: '100%'}} />
           </div>
-          <Link role="button" to="/posts/1/add" className="btn btn-primary pull-right">Add Post</Link>
-        </form>
+          <button onClick={() => this.props.submitUrl(this.state.url)} type="submit" className="btn btn-primary pull-right">Add Post</button>
       </div>
     )
   }

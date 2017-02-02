@@ -1,17 +1,3 @@
-const handlers = {
-  CAPTION_ADD_SUCCESS: (state, action) => {
-    const newState = state.slice(0) // Copy the state array
-    let captions = newState.find(post => post.id === action.postId).captions
-      newState
-        .find(post => post.id === action.postId) // Find the right post
-        .captions.push({
-          id: captions.length+1,
-          text: action.caption
-        })
-    return newState
-  }
-}
-
 export default (state = [], action) => {
   let newState = state.slice(0) // Copy the state array
   switch (action.type) {
@@ -33,10 +19,13 @@ export default (state = [], action) => {
       newState
         .find(post => post.id === action.postId) // Find the right post
         .captions.push({
-          id: captions.length+1,
+          id: captions.length + 1,
           text: action.caption
         })
       return newState
+
+    case 'ADD_POST_SUCCESS':
+      return [...state, action.post]
 
     default:
       return state

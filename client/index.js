@@ -10,8 +10,8 @@ import { Provider } from 'react-redux'
 import AppContainer from './containers/AppContainer'
 import reducers from './reducers'
 import PostDetailContainer from './containers/PostDetailContainer'
+import AddNewPostContainer from './containers/AddNewPostContainer'
 import PostCaptionContainer from './containers/PostCaptionContainer'
-import AddPostForm from './components/AddPostForm'
 import ThumbnailsContainer from './containers/ThumbnailsContainer'
 
 let store = createStore(
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Router history={history}>
         <Route path='/' component={AppContainer}>
           <IndexRoute component={ThumbnailsContainer} />
-          <Route path='posts/add' component={AddPostForm} />
+          <Route path='posts/add' component={AddNewPostContainer} />
           <Route path='posts/:postId/add' component={PostCaptionContainer} />
           <Route path='posts/:postId(/:captionId)' component={PostDetailContainer} />
         </Route>

@@ -107,10 +107,11 @@
 
     posts.push({
       id: posts.length + 1,
-      url: postUrl
+      url: postUrl,
+      captions: []
     })
     setTimeout(() => {
-      callback(null, posts[posts.length])
+      callback(null, posts[posts.length - 1])
     }, 1000)
   }
 

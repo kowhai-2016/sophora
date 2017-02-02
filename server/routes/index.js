@@ -11,13 +11,13 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
   const post = req.body.url
-  db.addPost(post, (err, postUrl) => {
-    res.json({message: 'post added successfully'})
+  db.addPost(post, (err, post) => {
+    res.status(201).json(post)
   })
 })
 
 router.post('/:id', function (req, res) {
-  const caption = req.body.text
+  const caption = req.body.caption
   const postId = Number(req.params.id)
   db.addCaption(postId, caption, (err, postCaption) => {
     res.json({message: 'caption added successfully'})
