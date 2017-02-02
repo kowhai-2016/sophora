@@ -1,18 +1,18 @@
-import { ADD_POST } from '../actions'
-
 const INITIAL_STATE = {
   posts: []
 }
 
-export default function (state = INITIAL_STATE, action) {
+const reducer = (state = INITIAL_STATE, action) => {
+  const newState = Object.assign({}, state)
+
   switch (action.type) {
-    case ADD_POST:
-      return {
-        ...state, post: action.request
-      }
-    break
+    case 'SAVED_NEW_POST':
+      newState.push(url)
+      return newState
 
     default:
       return state
   }
 }
+
+export default reducer

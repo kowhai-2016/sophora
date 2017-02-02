@@ -1,21 +1,30 @@
-import axios from 'axios'
+import request from 'superagent'
 
-const ROOT_URL = 'http://localhost:3000/posts'
-export const ADD_POST = 'ADD_POST'
 
-export function addNewPost (url) {
+export const addNewPost = url => {
   return dispatch => {
-    dispatch({type: 'ADD_NEW_POST_PENDING'})
-    return axios.post(`${ROOT_URL}`, { url })
-      .then(response => {
-        dispatch({
-          type: 'ADD_NEW_POST_SUCCESS',
-          url: response.data
-        })
+    const ROOT_URL = '/posts'
+
+    request.post(ROOT_URL)
+      .send ({ url })
+      .end ((err, res) => {
+        if (err) return console.error(err)
+        dispatch(savedNewPost(url))
       })
-      .catch(error => {
-        dispatch({type: 'ADD_NEW_POST_FAILURE', message: error.message})
-      })
+  }
+}
+
+
+export const addPostFailure = ({ postId }) => {
+  return {
+    type: 'ADD_POST_FAILURE',
+    postId
+  }
+}
+
+export const addPostSuccess = ({  postId }) => {
+  return {
+    type: 'ADD_POST_SUCCESS'
   }
 }
 
