@@ -119,7 +119,8 @@
     const nextCaptionId = posts[postIndex].captions.length
     posts[postIndex].captions.push({
       id: nextCaptionId + 1,
-      text: postCaption
+      text: postCaption,
+      like: 0
     })
     setTimeout(() => {
       callback(null, posts[postIndex].captions[nextCaptionId])

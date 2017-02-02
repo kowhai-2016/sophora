@@ -96,6 +96,20 @@ const INITIAL_STATE = [
     ]}
 ]
 
+const handlers = {
+  CAPTION_ADD_SUCCESS: (state, action) => {
+    const newState = state.slice(0) // Copy the state array
+    let captions = newState.find(post => post.id === action.postId).captions
+      newState
+        .find(post => post.id === action.postId) // Find the right post
+        .captions.push({
+          id: captions.length+1,
+          text: action.caption
+        })
+    return newState
+  }
+}
+
 export default (state = INITIAL_STATE, action) => {
   const newState = state.slice(0) // Copy the state array
   switch (action.type) {
@@ -106,6 +120,17 @@ export default (state = INITIAL_STATE, action) => {
         .find(caption => caption.id === action.captionId) // Find the right caption
         .likes = action.likes // Update the number of likes
       return newState
+
+    case 'CAPTION_ADD_SUCCESS':
+      let captions = newState.find(post => post.id === action.postId).captions
+      newState
+        .find(post => post.id === action.postId) // Find the right post
+        .captions.push({
+          id: captions.length+1,
+          text: action.caption
+        })
+      return newState
+
     default:
       return state
   }
