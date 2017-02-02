@@ -106,8 +106,9 @@
   function addPost (postUrl, callback) {
 
     posts.push({
-      id: ++posts.length,
-      url: postUrl
+      id: posts.length + 1,
+      url: postUrl,
+      captions: []
     })
     setTimeout(() => {
       callback(null, posts[posts.length - 1])

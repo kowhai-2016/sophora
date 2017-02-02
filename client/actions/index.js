@@ -1,19 +1,25 @@
 import request from 'superagent'
+import {hashHistory} from 'react-router'
 
-
-export const addNewPost = url => {
+export const addNewPost = (url, postId) => {
   return dispatch => {
     const ROOT_URL = '/posts'
 
     request.post(ROOT_URL)
       .send ({ url })
       .end ((err, res) => {
-        if (err) return console.error(err)
-        dispatch(savedNewPost(url))
+        if (err) {
+          return dispatch(addPostFailure({
+            message: error.message
+          }))
+        } else {
+          const post = res.body
+          dispatch(addPostSuccess(url, post))
+          hashHistory.push(`/posts/${post.id}`)
+        }
       })
   }
 }
-
 
 export const addPostFailure = ({ postId }) => {
   return {
@@ -22,9 +28,11 @@ export const addPostFailure = ({ postId }) => {
   }
 }
 
-export const addPostSuccess = ({  postId }) => {
+export const addPostSuccess = ({ post, url }) => {
   return {
-    type: 'ADD_POST_SUCCESS'
+    type: 'ADD_POST_SUCCESS',
+    post,
+    url
   }
 }
 

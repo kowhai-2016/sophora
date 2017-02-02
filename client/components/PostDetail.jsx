@@ -45,20 +45,20 @@ const PostDetail = props => {
   )
 }
 
-PostDetail.propTypes = {
-  likeCaption: PropTypes.func.isRequired,
-  params: PropTypes.shape({
-    captionId: PropTypes.string,
-    postId: PropTypes.string.isRequired
-  }).isRequired,
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      captions: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired
-      })).isRequired
-    })
-  ).isRequired
-}
+// PostDetail.propTypes = {
+//   likeCaption: PropTypes.func.isRequired,
+//   params: PropTypes.shape({
+//     captionId: PropTypes.string,
+//     postId: PropTypes.string.isRequired
+//   }).isRequired,
+//   posts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//       captions: PropTypes.arrayOf(PropTypes.shape({
+//         id: PropTypes.number.isRequired
+//       })).isRequired
+//     })
+//   ).isRequired
+// }
 
 export default PostDetail

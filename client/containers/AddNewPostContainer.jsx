@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitUrl: url => dispatch(addNewPost(url))
+    submitUrl: (url, postId) => dispatch(addNewPost(url, postId))
   }
 }
 
