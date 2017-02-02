@@ -106,7 +106,7 @@
   function addPost (postUrl, callback) {
 
     posts.push({
-      id: ++posts.length,
+      id: posts.length + 1,
       url: postUrl
     })
     setTimeout(() => {
