@@ -8,7 +8,8 @@
     "start": "node server/server",
     "server": "node-dev server/server",
     "watch": "node-dev server/server --watch & webpack --watch",
-    "test": "ava --watch"
+    "test": "ava --watch",
+    "postinstall": "webpack"
   },
   "babel": {
     "presets": [
@@ -16,20 +17,26 @@
       "react"
     ]
   },
+  "engines": {
+    "node" : "^7.4"
+  },
   "author": "EDA",
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.15.2",
+    "enzyme": "^2.7.1",
+    "node-dev": "^3.1.3",
+    "nodemon": "^1.11.0",
+    "react-addons-test-utils": "^15.4.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
-    "enzyme": "^2.7.1",
-    "node-dev": "^3.1.3",
-    "nodemon": "^1.11.0",
     "react": "^15.4.2",
-    "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^4.4.6",
     "react-router": "^3.0.2",
@@ -37,9 +44,6 @@
     "redux-thunk": "^2.2.0",
     "superagent": "^2.3.0",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
-  },
-  "dependencies": {
     "body-parser": "^1.16.0",
     "cors": "^2.8.1",
     "express": "^4.14.0",
