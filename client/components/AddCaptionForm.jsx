@@ -1,22 +1,37 @@
-import React from 'react'
+
+import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
 import PostImage from './PostImage'
 
-export default React.createClass({
-  render () {
+let captionElement = {}
+
+const submitCaption = (props, caption, postId) => {
+  if (caption) {
+    props.onSubmit(caption, postId)
+  }
+}
+
+const AddCaptionForm = props => {
+    const postId = Number(props.params.postId)
+    const post = props.posts.find(post => post.id === postId)
+    if(!post) return null
     return (
       <div className="container">
         <div className="row">
-          <PostImage />
+          <PostImage url={post.url}/>
         </div>
         <div className="row">
-          <div className="form-group">
-            <label htmlFor="exampleTextarea">Drop a line down below</label>
-            <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
-            <Link role="button" className="btn btn-outline-success" to='/posts/{props.params.postId}'>Add Caption</Link>
-          </div>
+          <form>
+            <div className="form-group">
+              <label htmlFor="exampleTextarea">Drop a line down below</label>
+              <textarea ref={elem => captionElement = elem} className="form-control" id="exampleTextarea" rows="3"></textarea>
+              <button onClick={() => submitCaption(props, captionElement.value, postId)}>Add Caption</button>
+            </div>
+          </form>
         </div>
       </div>
     )
-  }
-})
+}
+
+export default AddCaptionForm

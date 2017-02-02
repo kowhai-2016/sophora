@@ -7,10 +7,10 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Provider } from 'react-redux'
 
-import App from './components/App'
+import AppContainer from './containers/AppContainer'
 import reducers from './reducers'
 import PostDetailContainer from './containers/PostDetailContainer'
-import AddCaptionForm from './components/AddCaptionForm'
+import PostCaptionContainer from './containers/PostCaptionContainer'
 import AddPostForm from './components/AddPostForm'
 import ThumbnailsContainer from './containers/ThumbnailsContainer'
 
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
   render(
     <Provider store={store}>
       <Router history={history}>
-        <Route path='/' component={App}>
+        <Route path='/' component={AppContainer}>
           <IndexRoute component={ThumbnailsContainer} />
           <Route path='posts/add' component={AddPostForm} />
-          <Route path='posts/:postId/add' component={AddCaptionForm} />
+          <Route path='posts/:postId/add' component={PostCaptionContainer} />
           <Route path='posts/:postId(/:captionId)' component={PostDetailContainer} />
         </Route>
       </Router>
