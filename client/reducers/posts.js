@@ -33,7 +33,7 @@ const INITIAL_STATE = [
   },
   {
     id: 3,
-    url: 'http://cache.lovethispic.com/uploaded_images/164412-Adorable-Husky-Puppies.jpg',
+    url: 'https://cache.lovethispic.com/uploaded_images/164412-Adorable-Husky-Puppies.jpg',
     captions: [
       {
         id: 1,
@@ -65,7 +65,7 @@ const INITIAL_STATE = [
   },
   {
     id: 5,
-    url: 'http://baby-animals.net/wp-content/gallery/Baby-kangaroo-wallpapers/Baby-kangaroo-wallpapers.jpg',
+    url: 'https://baby-animals.net/wp-content/gallery/Baby-kangaroo-wallpapers/Baby-kangaroo-wallpapers.jpg',
     captions: [
       {
         id: 1,
@@ -81,7 +81,7 @@ const INITIAL_STATE = [
   },
   {
     id: 6,
-    url: 'http://static.boredpanda.com/blog/wp-content/uploads/2016/02/cute-baby-polar-bear-day-photography-14__880.jpg',
+    url: 'https://justcuteanimals.com/wp-content/uploads/2015/08/baby-polar-bear-snow-cute-animals-pictures-pics.jpg',
     captions: [
       {
         id: 1,
@@ -96,6 +96,20 @@ const INITIAL_STATE = [
     ]}
 ]
 
+const handlers = {
+  CAPTION_ADD_SUCCESS: (state, action) => {
+    const newState = state.slice(0) // Copy the state array
+    let captions = newState.find(post => post.id === action.postId).captions
+      newState
+        .find(post => post.id === action.postId) // Find the right post
+        .captions.push({
+          id: captions.length+1,
+          text: action.caption
+        })
+    return newState
+  }
+}
+
 export default (state = INITIAL_STATE, action) => {
   const newState = state.slice(0) // Copy the state array
   switch (action.type) {
@@ -106,6 +120,17 @@ export default (state = INITIAL_STATE, action) => {
         .find(caption => caption.id === action.captionId) // Find the right caption
         .likes = action.likes // Update the number of likes
       return newState
+
+    case 'CAPTION_ADD_SUCCESS':
+      let captions = newState.find(post => post.id === action.postId).captions
+      newState
+        .find(post => post.id === action.postId) // Find the right post
+        .captions.push({
+          id: captions.length+1,
+          text: action.caption
+        })
+      return newState
+
     default:
       return state
   }
