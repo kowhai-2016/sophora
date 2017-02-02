@@ -11,8 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    likeCaption ({ captionId, postId }) {
-      dispatch(likeCaption({captionId, postId}))
+    likeCaption (postId, captionId) {
+      dispatch(likeCaption(postId, captionId))
     }
   }
 }

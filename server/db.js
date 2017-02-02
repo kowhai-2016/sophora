@@ -33,7 +33,7 @@
     },
     {
       id: 3,
-      url: 'http://cache.lovethispic.com/uploaded_images/164412-Adorable-Husky-Puppies.jpg',
+      url: 'https://cache.lovethispic.com/uploaded_images/164412-Adorable-Husky-Puppies.jpg',
       captions: [
         {
           id: 1,
@@ -65,7 +65,7 @@
     },
     {
       id: 5,
-      url: 'http://baby-animals.net/wp-content/gallery/Baby-kangaroo-wallpapers/Baby-kangaroo-wallpapers.jpg',
+      url: 'https://baby-animals.net/wp-content/gallery/Baby-kangaroo-wallpapers/Baby-kangaroo-wallpapers.jpg',
       captions: [
         {
           id: 1,
@@ -81,7 +81,7 @@
     },
     {
       id: 6,
-      url: 'http://static.boredpanda.com/blog/wp-content/uploads/2016/02/cute-baby-polar-bear-day-photography-14__880.jpg',
+      url: 'https://justcuteanimals.com/wp-content/uploads/2015/08/baby-polar-bear-snow-cute-animals-pictures-pics.jpg',
       captions: [
         {
           id: 1,
@@ -120,7 +120,8 @@
     const nextCaptionId = posts[postIndex].captions.length
     posts[postIndex].captions.push({
       id: nextCaptionId + 1,
-      text: postCaption
+      text: postCaption,
+      like: 0
     })
     setTimeout(() => {
       callback(null, posts[postIndex].captions[nextCaptionId])

@@ -14,7 +14,7 @@ export const addNewPost = (url, postId) => {
           }))
         } else {
           const post = res.body
-          dispatch(addPostSuccess(url, post))
+          dispatch(addPostSuccess({url, post}))
           hashHistory.push(`/posts/${post.id}`)
         }
       })
@@ -29,6 +29,7 @@ export const addPostFailure = ({ postId }) => {
 }
 
 export const addPostSuccess = ({ post, url }) => {
+  console.log(post)
   return {
     type: 'ADD_POST_SUCCESS',
     post,
@@ -36,35 +37,80 @@ export const addPostSuccess = ({ post, url }) => {
   }
 }
 
-export const likeCaption = ({ captionId, postId }) => {
+export const addCaption = (caption, postId) => {
+  return dispatch => {
+    const target = `/posts/${postId}`
+
+    request.post(target)
+      .set('Content-Type', 'application/json')
+      .send({text: caption})
+      .end((err, res) => {
+        if (err) {
+          console.error(err)
+          return dispatch(captionAddFail(caption, postId))
+        } else {
+          dispatch(captionAddSuccess(caption, postId))
+          hashHistory.push(`/posts/${postId}`)
+        }
+      })
+    }
+  }
+
+export const likeCaption = (postId, captionId) => {
   const origin = window.location.origin
   return dispatch => {
-    dispatch(likeCaptionPending({captionId, postId}))
+    dispatch(likeCaptionPending(postId, captionId))
     request.put(`${origin}/posts/${postId}/${captionId}`)
       .end((error, response) => {
         if (error) {
-          return dispatch(likeCaptionFailure({
-            captionId,
+          return dispatch(likeCaptionFailure(
             postId,
-            message: error.message
-          }))
+            captionId,
+            error.message
+          ))
         } else {
           const likes = response.body.likes
-          return dispatch(likeCaptionSuccess({captionId, likes, postId}))
+          return dispatch(likeCaptionSuccess(postId, captionId, likes))
         }
       })
   }
 }
 
-export const likeCaptionFailure = ({ captionId, postId }) => {
+
+export const captionAddSuccess = (caption, postId) => {
+  return {
+    type: 'CAPTION_ADD_SUCCESS',
+    caption,
+    postId
+  }
+}
+
+export const captionAddFail = (caption, postId) => {
+  return {
+    type: 'CAPTION_ADD_FAIL',
+    caption,
+    postId
+  }
+}
+
+export const addingCaption = (caption, postId) => {
+  return {
+    type: 'ADDING_CAPTION',
+    caption,
+    postId
+  }
+}
+
+export const likeCaptionFailure = (postId, captionId, message) => {
   return {
     captionId,
     postId,
+    message,
     type: 'LIKE_CAPTION_FAILURE'
   }
 }
 
-export const likeCaptionPending = ({ captionId, postId }) => {
+export const likeCaptionPending = (postId, captionId) => {
   return {
     captionId,
     postId,
@@ -72,7 +118,7 @@ export const likeCaptionPending = ({ captionId, postId }) => {
   }
 }
 
-export const likeCaptionSuccess = ({ captionId, likes, postId }) => {
+export const likeCaptionSuccess = (postId, captionId, likes) => {
   return {
     captionId,
     likes,
