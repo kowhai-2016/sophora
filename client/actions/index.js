@@ -20,6 +20,25 @@ export const addCaption = (caption, postId) => {
     }
   }
 
+export const getInitialData = () => {
+  return dispatch => {
+    request.get(`/posts`)
+      .end((err, res) => {
+        if (!err) {
+          const posts = JSON.parse(res.text)
+          return dispatch(initialDataLoaded(posts))
+        }
+      })
+  }
+}
+
+export const initialDataLoaded = posts => {
+  return {
+    type: 'INITIAL_DATA_RETRIEVED',
+    posts
+  }
+}
+
 export const likeCaption = (postId, captionId) => {
   const origin = window.location.origin
   return dispatch => {
@@ -33,8 +52,8 @@ export const likeCaption = (postId, captionId) => {
             error.message
           ))
         } else {
-          const likes = response.body.likes
-          return dispatch(likeCaptionSuccess(postId, captionId, likes))
+          const like = response.body.like
+          return dispatch(likeCaptionSuccess(postId, captionId, like))
         }
       })
   }
@@ -82,10 +101,10 @@ export const likeCaptionPending = (postId, captionId) => {
   }
 }
 
-export const likeCaptionSuccess = (postId, captionId, likes) => {
+export const likeCaptionSuccess = (postId, captionId, like) => {
   return {
     captionId,
-    likes,
+    like,
     postId,
     type: 'LIKE_CAPTION_SUCCESS'
   }
